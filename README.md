@@ -11,6 +11,7 @@ Our approach computes sliding window embeddings for two proteins, constructs a w
 
 ## Workflow
 <img src="figs/workflow_new.png" alt="workflow" width="1400">
-- Step1: Extract window embeddings from pLM-derived residue embeddings
-- Step2: Sigmoid-based transformation for signal enhancement
-- Step3: Alignment based on the Smith-Waterman algorithm using a predefined reward matrix
+
+  - Step1: Extract window embeddings from pLM-derived residue embeddings
+  - Step2: Sigmoid-based transformation for signal enhancement
+  - Step3: Alignment based on the Smith-Waterman algorithm using a predefined reward matrix
