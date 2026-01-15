@@ -14,6 +14,6 @@ After download, `embeddings/` should contain:
 - prostt5_complete_matrix_win3.pkl
 - prott5_aligned_embs.pkl
 
-## Download (GitHub Release)
+### Download (GitHub Release)
 Release: **Embeddings artifacts v1**  
 Tag: `embs-artifacts-v1`
