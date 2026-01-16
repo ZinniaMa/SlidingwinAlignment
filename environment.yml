@@ -1,0 +1,19 @@
+name: swali
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pytorch
+  - pytorch-cuda=11.8
+  - torchaudio
+  - torchvision
+  - ipykernel
+  - biopython
+  - mdtraj
+  - scikit-learn
+  - matplotlib
+  - tqdm
+  - seaborn
+  - pip
+  - pip:
+      - tmtools
