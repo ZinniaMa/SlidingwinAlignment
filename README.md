@@ -22,7 +22,7 @@ We recommend creating the environment from `environment.yml` before running any 
 
 ```bash
 conda env create -f environment.yml
-conda activate slidingwinalignment
+conda activate swali
 ```
 
 ## Repository structure
