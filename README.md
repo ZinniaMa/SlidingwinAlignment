@@ -15,3 +15,25 @@ Our approach computes sliding window embeddings for two proteins, constructs a w
   - Step1: Extract window embeddings from pLM-derived residue embeddings
   - Step2: Sigmoid-based transformation for signal enhancement
   - Step3: Alignment based on the Smith-Waterman algorithm using a predefined reward matrix
+
+## Setup
+
+We recommend creating the environment from `environment.yml` before running any notebooks or reproduction scripts.
+
+```bash
+conda env create -f environment.yml
+conda activate slidingwinalignment
+```
+
+## Repository structure
+
+- `slidingwinalignment/` contains the core implementation of the local structural similarity framework.
+- `examples/` contains example notebooks demonstrating the main applications of the tool.
+- `repro/` contains notebooks and assets for reproducing the results and comparisons presented in the paper.
+
+To get started with the tool, see:
+- `examples/local_alignment.ipynb`
+- `examples/motif_screening.ipynb`
+
+For paper-related reproduction, see the notebooks and accompanying files under `repro/`.
+Some large precomputed artifacts are not tracked by git and should be downloaded separately as described in the corresponding README files.
