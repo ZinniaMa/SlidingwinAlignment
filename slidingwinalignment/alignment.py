@@ -61,3 +61,40 @@ def local_alignment(match_reward: List[list[int]], indel_penalty: int) -> Tuple[
                 o1,o2 = OutputLCS(back, i, j)
     
                 return bestscore,[o1[0],o1[-1]],[o2[0],o2[-1]]
+
+def fitting_alignment(match_reward: List[list[int]], indel_penalty: int) -> Tuple[int, str, str]:
+    """
+    Compute the local alignment of two strings based on match reward, mismatch penalty, and indel penalty.
+    """
+    v, w = len(match_reward), len(match_reward[0])
+    s = {}
+    s[(0,0)] = 0
+    back = {}
+    for i in range(1, v+1):
+        s[(i,0)] = s[(i-1,0)]-indel_penalty
+        back[(i,0)] = 'd'
+    for j in range(1, w+1):
+        s[(0,j)] = max(s[(0,j-1)]-indel_penalty,0)
+        if s[(0,j)] == s[(0,j-1)]-indel_penalty:
+            back[(0,j)] = 'r'
+        else:
+            back[(0,j)] = '0'
+    for i in range(1, v+1):
+        for j in range(1, w+1):
+            s[(i,j)] = max(s[(i-1,j)]-indel_penalty,s[(i,j-1)]-indel_penalty,s[(i-1,j-1)]+match_reward[i-1][j-1])
+            if s[(i,j)] == s[(i-1,j)]-indel_penalty:
+                back[(i,j)] = 'd'
+            elif s[(i,j)] == s[(i,j-1)]-indel_penalty:
+                back[(i,j)] = 'r'
+            elif s[(i,j)] == s[(i-1,j-1)]+match_reward[i-1][j-1]:
+                back[(i,j)] = 'm'
+
+    bestscore = max(s[(v,j)] for j in range(w+1))
+
+    for j in range(w+1):
+        if s[(v,j)] == bestscore:
+            o1,o2 = OutputLCS(back, v, j)
+            o1 = [int(x) for x in o1 if x != '-']
+            o2 = [int(x) for x in o2 if x != '-']
+    
+            return bestscore,[o1[0],o1[-1]],[o2[0],o2[-1]]

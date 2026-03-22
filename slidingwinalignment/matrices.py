@@ -25,10 +25,6 @@ def similarity_matrix(emb1, emb2, window_size):
     windows1 = [average_embedding(emb1, i, i + window_size) for i in range(W1)]
     windows2 = [average_embedding(emb2, j, j + window_size) for j in range(W2)]
 
-    for i in range(W1):
-        sims = cosine_similarity(windows1[i].reshape(1, -1), np.vstack(windows2)).flatten()
-        sim_matrix[i, :] = sims
+    sim_matrix = cosine_similarity(np.vstack(windows1), np.vstack(windows2))
 
-    best_i, best_j = np.unravel_index(np.argmax(sim_matrix), sim_matrix.shape)
-    best_score = sim_matrix[best_i, best_j]
-    return sim_matrix, (best_i, best_j, best_score)
+    return sim_matrix
