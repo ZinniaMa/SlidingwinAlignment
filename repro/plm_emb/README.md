@@ -2,9 +2,9 @@
 
 This folder stores precomputed embedding artifacts used for reproduction.
 The `.pkl` files are large and are NOT tracked by git. Please download them from this
-repository's GitHub Release and place them under `embeddings/`.
+repository's GitHub Release and place them under `repro/plm_emb/`.
 
-After download, `embeddings/` should contain:
+After download, `repro/plm_emb/` should contain:
 
 - carp_aligned_embs.pkl
 - esm2_3B_aligned_embs.pkl
